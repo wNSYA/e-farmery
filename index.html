@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Irrigation PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" type="image/png" />
+  <meta name="theme-color" content="#4CAF50"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🌱 Smart Irrigation Dashboard</h1>
+
+  <div class="card weather-card">
+    <h2>🌤️ Current Weather</h2>
+    <div id="weather">
+      Loading weather...
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💧 Irrigation System</h2>
+    <p>Soil Moisture: <span id="moisture">--</span>%</p>
+    <p>Valve Status: <span id="valve">--</span></p>
+    <button onclick="toggleValve()">Toggle Valve</button>
+  </div>
+
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
